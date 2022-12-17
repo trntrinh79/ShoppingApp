@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "140102211636",
+    "firebase_url": "https://shopping-2bd38-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "shopping-2bd38",
+    "storage_bucket": "shopping-2bd38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140102211636:android:8ca3ea82e275e2bca9d261",
+        "android_client_info": {
+          "package_name": "com.groceryapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8G-7oNOZGW0splb1hfNniJQ8ju2lD_nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140102211636:android:84f3353f7d199e5ca9d261",
+        "android_client_info": {
+          "package_name": "com.pj.shoppingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8G-7oNOZGW0splb1hfNniJQ8ju2lD_nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140102211636:android:c5f540f7fee46889a9d261",
+        "android_client_info": {
+          "package_name": "com.vishalgaur.shoppingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8G-7oNOZGW0splb1hfNniJQ8ju2lD_nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140102211636:android:1934d17dcaef36efa9d261",
+        "android_client_info": {
+          "package_name": "me.wolszon.fastshopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8G-7oNOZGW0splb1hfNniJQ8ju2lD_nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140102211636-2op82rr458hq3tpogsjn4fadpdv54pqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
