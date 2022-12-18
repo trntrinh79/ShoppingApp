@@ -3,5 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
         <item>@font/aldrich</item>
+        <item>@font/open_sans</item>
+        <item>@font/open_sans_semibold</item>
     </array>
 </resources>
