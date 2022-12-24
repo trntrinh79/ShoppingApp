@@ -33,15 +33,38 @@ public class Colections {
         this.urlImage = urlImage;
     }
 
-    public Colections(Integer id, Integer urlImage,String name ,String price) {
+    public Colections(Integer id, Integer urlImage,String name ,String price,String rating,Integer bigImageurl) {
         this.name = name;
         this.price = price;
         this.id = id;
         this.urlImage = urlImage;
+        this.rating = rating;
+        this.bigImageurl= bigImageurl;
     }
-
+    String rating;
     String name;
     String price;
     Integer id;
     int urlImage;
+    int bigImageurl;
+
+    public int getBigImageurl() {
+        return bigImageurl;
+    }
+
+    public void setBigImageurl(int bigImageurl) {
+        this.bigImageurl = bigImageurl;
+    }
+
+
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+
 }

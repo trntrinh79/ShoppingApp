@@ -41,12 +41,12 @@ public class HomeActivity extends AppCompatActivity {
         colectionsList = new ArrayList<>();
 
         //add Colection
-        colectionsList.add(new Colections(1,R.drawable.mocha,"Mocha","115$"));
-        colectionsList.add(new Colections(2,R.drawable.noble_red,"Red Noble","255$"));
-        colectionsList.add(new Colections(3,R.drawable.af1_low,"AF1 low","96$"));
-        colectionsList.add(new Colections(4,R.drawable.af1_shadow,"AF1 Shadow","100$"));
-        colectionsList.add(new Colections(5,R.drawable.jordan4_retro,"Jordan 4 Retro","200$"));
-        colectionsList.add(new Colections(5,R.drawable.jordan_high_retro_og,"Jordan High Retro OG","250$"));
+        colectionsList.add(new Colections(1,R.drawable.mocha,"Mocha","115$","4.5",R.id.big_image));
+        colectionsList.add(new Colections(2,R.drawable.noble_red,"Red Noble","255$","5.0",R.id.big_image));
+        colectionsList.add(new Colections(3,R.drawable.af1_low,"AF1 low","96$","4.0",R.id.big_image));
+        colectionsList.add(new Colections(4,R.drawable.af1_shadow,"AF1 Shadow","100$","4.5",R.id.big_image));
+        colectionsList.add(new Colections(5,R.drawable.jordan4_retro,"Jordan 4 Retro","200$","4.5",R.id.big_image));
+        colectionsList.add(new Colections(5,R.drawable.jordan_high_retro_og,"Jordan High Retro OG","250$","5.0",R.id.big_image));
 
         databaseReference  = FirebaseDatabase.getInstance().getReference("Items");
         databaseReference.setValue(colectionsList).addOnSuccessListener(new OnSuccessListener<Void>() {

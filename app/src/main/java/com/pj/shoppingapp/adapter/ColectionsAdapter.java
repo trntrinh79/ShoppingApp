@@ -15,8 +15,6 @@ import com.pj.shoppingapp.ProductDetails;
 import com.pj.shoppingapp.R;
 import com.pj.shoppingapp.model.Colections;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.ColectionViewHolder> {
@@ -45,11 +43,15 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
         holder.name.setText(colections.get(position).getName());
         holder.price.setText(colections.get(position).getPrice());
 
+        //Glide.with(context).load(colections.get(position).getUrlImage()).into((ImageView) holder.itemView);
+
 
         holder.itemView.setOnClickListener((view)->{
             Intent i=new Intent(context, ProductDetails.class);
             i.putExtra("name",colections.get(position).getName());
             i.putExtra("price",colections.get(position).getPrice());
+            i.putExtra("rating",colections.get(position).getRating());
+            i.putExtra("image", colections.get(position).getUrlImage());
 
 
             context.startActivity(i);
@@ -72,6 +74,10 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
             image = itemView.findViewById(R.id.categoryImage);
             name = itemView.findViewById(R.id.nameSneaker);
             price = itemView.findViewById(R.id.priceSneaker);
+
+
+
+
         }
     }
 }

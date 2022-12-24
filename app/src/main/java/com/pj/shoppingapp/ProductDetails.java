@@ -1,7 +1,10 @@
 package com.pj.shoppingapp;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProductDetails extends AppCompatActivity {
-
-    ImageView img, back;
-    TextView proName, proPrice, proDesc, proQty, proUnit;
-
-    String name, price, desc, qty, unit;
-    int image;
-
+    TextView productName, productPrice, productRating;
+    ImageView backButton,img ,bg;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,36 +22,32 @@ public class ProductDetails extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        name = i.getStringExtra("name");
-        price = i.getStringExtra("price");
-        image = i.getIntExtra("image",R.drawable.noble_red);
+        String name = i.getStringExtra("name");
+        String price = i.getStringExtra("price");
+        String rating = i.getStringExtra("rating");
+        Integer image = i.getIntExtra("image",R.drawable.b1);
 
 
-        proName = findViewById(R.id.productName);
-        proPrice = findViewById(R.id.prodPrice);
+        productName = findViewById(R.id.prod_name);
+        productPrice = findViewById(R.id.price);
+        productRating = findViewById(R.id.rating);
+        backButton = findViewById(R.id.backButton);
         img = findViewById(R.id.big_image);
-        back = findViewById(R.id.back2);
 
 
-        proName.setText(name);
-        proPrice.setText(price);
+
+        productName.setText(name);
+        productPrice.setText(price);
+        productRating.setText(rating);
         img.setImageResource(image);
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent i = new Intent(ProductDetails.this, MainActivity.class);
+                Intent i = new Intent(ProductDetails.this, HomeActivity.class);
                 startActivity(i);
-                finish();
-
             }
         });
-
     }
-
-
-    // this tutorial has been completed
-    // see you in the next.
 }
