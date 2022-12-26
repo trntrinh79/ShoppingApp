@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.pj.shoppingapp.ProductDetails;
 import com.pj.shoppingapp.R;
 import com.pj.shoppingapp.model.Colections;
@@ -23,9 +24,11 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
     Context context;
     ArrayList<Colections> colections;
 
+
     public ColectionsAdapter(Context context, ArrayList<Colections> colections) {
         this.context = context;
         this.colections = colections;
+
     }
 
     @NonNull
@@ -39,9 +42,10 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
     @Override
     public void onBindViewHolder(@NonNull ColectionViewHolder holder, final int position) {
 
-        holder.image.setImageResource(colections.get(position).getUrlImage());
+        Glide.with(context).load(colections.get(position).getUrlImage()).into(holder.image);
         holder.name.setText(colections.get(position).getName());
         holder.price.setText(colections.get(position).getPrice());
+//        holder.description.setText(colections.get(position).getDescription());
 
         //Glide.with(context).load(colections.get(position).getUrlImage()).into((ImageView) holder.itemView);
 
@@ -52,6 +56,8 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
             i.putExtra("price",colections.get(position).getPrice());
             i.putExtra("rating",colections.get(position).getRating());
             i.putExtra("image", colections.get(position).getUrlImage());
+            i.putExtra("description", colections.get(position).getDescription());
+
 
 
             context.startActivity(i);
@@ -65,7 +71,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
     }
 
     public static class ColectionViewHolder extends  RecyclerView.ViewHolder{
-        TextView name,price;
+        TextView name,price,description;
         ImageView image;
 
         public ColectionViewHolder(@NonNull View itemView) {
@@ -74,6 +80,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
             image = itemView.findViewById(R.id.categoryImage);
             name = itemView.findViewById(R.id.nameSneaker);
             price = itemView.findViewById(R.id.priceSneaker);
+            description = itemView.findViewById(R.id.descriptionView);
 
 
 

@@ -1,6 +1,19 @@
 package com.pj.shoppingapp.model;
 
 public class Colections {
+
+    String rating;
+    String name;
+    String price;
+    Integer id;
+    String urlImage;
+    int bigImageurl;
+    String description;
+
+
+
+
+
     public String getName() {
         return name;
     }
@@ -25,28 +38,33 @@ public class Colections {
         this.id = id;
     }
 
-    public Integer getUrlImage() {
+    public String getUrlImage() {
         return urlImage;
     }
 
-    public void setUrlImage(Integer urlImage) {
+    public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
     }
 
-    public Colections(Integer id, Integer urlImage,String name ,String price,String rating,Integer bigImageurl) {
+    public Colections(Integer id, String urlImage, String name , String price, String rating, String description) {
         this.name = name;
         this.price = price;
         this.id = id;
         this.urlImage = urlImage;
         this.rating = rating;
-        this.bigImageurl= bigImageurl;
+        this.description= description;
     }
-    String rating;
-    String name;
-    String price;
-    Integer id;
-    int urlImage;
-    int bigImageurl;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
 
     public int getBigImageurl() {
         return bigImageurl;
