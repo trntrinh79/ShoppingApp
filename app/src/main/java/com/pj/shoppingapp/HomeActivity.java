@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,20 +27,40 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     RecyclerView colectionsRecyclerView;
     ColectionsAdapter colectionsAdapter;
-    List<Colections> colectionsList;
+    List<Colections> colectionsList = new ArrayList<>();
+
     DatabaseReference databaseReference;
+    EditText search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        search = findViewById(R.id.etSearch);
         colectionsRecyclerView=findViewById(R.id.colectionsRecycler);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                colectionsAdapter.getFilter().filter(editable);
+            }
+        });
 
 
 
-        colectionsList = new ArrayList<>();
+
+
+
 
         //add Colection
         colectionsList.add(new Colections(1,"https://sneakerdaily.vn/wp-content/uploads/2020/11/air-jordan-1-high-dark-mocha-555088-105-1.png.webp","Air Jordan 1 Dark Mocha High OG","115$","4.5","This OG AJ1 employs a new twist on a familiar colour scheme: dark mocha."));
@@ -62,6 +87,7 @@ public class HomeActivity extends AppCompatActivity {
 
         setColectionsRecycler((ArrayList<Colections>) colectionsList);
 
+
     }
 
     private void setColectionsRecycler(ArrayList<Colections> dataList) {
@@ -70,6 +96,9 @@ public class HomeActivity extends AppCompatActivity {
         colectionsAdapter = new ColectionsAdapter(this,dataList);
         colectionsRecyclerView.setAdapter(colectionsAdapter);
     }
+
+
+
 
 
 }
