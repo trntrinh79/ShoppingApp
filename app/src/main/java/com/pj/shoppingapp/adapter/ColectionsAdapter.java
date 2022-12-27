@@ -116,7 +116,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
                         }
                     }
                     colections = list;
-                    colections.add(onAttachedToRecyclerView();)
+
                 }
 
                 FilterResults filterResults = new FilterResults();
