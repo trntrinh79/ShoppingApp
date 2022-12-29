@@ -25,12 +25,21 @@ public class Cart {
         this.imageUrl = imageUrl;
     }
 
-    public Cart(String name, String price, String imageUrl) {
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public Cart(String name, String price, String imageUrl, String size) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
+        this.size = size;
     }
-
+    String size;
     String name;
     String price;
     String imageUrl;

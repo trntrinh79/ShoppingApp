@@ -1,5 +1,6 @@
 package com.pj.shoppingapp;
 
+import static java.lang.Integer.BYTES;
 import static java.lang.Integer.parseInt;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +17,23 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.pj.shoppingapp.model.Cart;
+import com.pj.shoppingapp.model.Colections;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class ProductDetails extends AppCompatActivity {
     TextView productName, productPrice, productRating, descriptionView;
     ImageView backButton,img;
     LottieAnimationView lottieAnimationViewaddtocart,like;
+    String size,name,price,rating,image,description;
+
+
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -33,11 +46,11 @@ public class ProductDetails extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Intent i = getIntent();
 
-        String name = i.getStringExtra("name");
-        String price = i.getStringExtra("price");
-        String rating = i.getStringExtra("rating");
-        String image = i.getStringExtra("image");
-        String description = i.getStringExtra("description");
+        name = i.getStringExtra("name");
+        price = i.getStringExtra("price");
+        rating = i.getStringExtra("rating");
+        image = i.getStringExtra("image");
+        description = i.getStringExtra("description");
 
         like = findViewById(R.id.like);
         productName = findViewById(R.id.prod_name);
@@ -58,6 +71,10 @@ public class ProductDetails extends AppCompatActivity {
         Glide.with(this).load(image).into(img);
 
 
+
+
+//
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,11 +89,24 @@ public class ProductDetails extends AppCompatActivity {
                 Toast.makeText(ProductDetails.this, "Thanks for Like", Toast.LENGTH_SHORT).show();
             }
         });
+
         lottieAnimationViewaddtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 lottieAnimationViewaddtocart.playAnimation();
+
             }
         });
+
+
+
+    }
+
+    public void onClickSizeButton(View view) {
+        Button b = (Button) view;
+        size = b.getText().toString();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
+        Cart cart = new Cart(name,price,image,size);
+        databaseReference.push().setValue(cart);
     }
 }

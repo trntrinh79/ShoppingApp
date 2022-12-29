@@ -1,64 +1,70 @@
-//package com.pj.shoppingapp.adapter;
-//
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.ImageView;
-//import android.widget.TextView;
-//
-//import androidx.annotation.NonNull;
-//import androidx.recyclerview.widget.RecyclerView;
-//
-//import com.google.firebase.database.core.Context;
-//import com.pj.shoppingapp.AddToCart;
-//import com.pj.shoppingapp.R;
-//import com.pj.shoppingapp.model.Cart;
-//
-//import java.util.ArrayList;
-//
-//public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
-//
-//    Context context;
-//    ArrayList<Cart> cart;
-//
-//
-//
-//    public CartAdapter(Context context,ArrayList<Cart> cart){
-//        this.context = context;
-//        this.cart= cart;
-//    }
-//    @NonNull
-//    @Override
-//    public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(context).inflate(R.layout.colection_row_items, parent, false);
-//        return new CartViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull CartAdapter.CartViewHolder holder, int position) {
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return cart.size();
-//    }
-//
-//    public static class CartViewHolder extends RecyclerView.ViewHolder {
-//        TextView name,price;
-//        ImageView image;
-//
-//        public CartViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//
-//            image = itemView.findViewById(R.id.categoryImage);
-//            name = itemView.findViewById(R.id.nameSneaker);
-//            price = itemView.findViewById(R.id.priceSneaker);
-//
-//
-//
-//
-//
-//        }
-//    }
-//}
+package com.pj.shoppingapp.adapter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.pj.shoppingapp.ProductDetails;
+import com.pj.shoppingapp.R;
+import com.pj.shoppingapp.model.Cart;
+import com.pj.shoppingapp.model.Colections;
+
+import java.util.ArrayList;
+
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewHolder> {
+
+
+    Context context;
+    ArrayList<Cart> carts;
+
+    public CartAdapter(Context context, ArrayList<Cart> carts) {
+        this.context = context;
+        this.carts = carts;
+    }
+
+    @NonNull
+    @Override
+    public ColectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.incart_item, parent, false);
+        return new ColectionViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ColectionViewHolder holder, final int position) {
+
+        Glide.with(context).load(carts.get(position).getImageUrl()).into(holder.image);
+        holder.name.setText(carts.get(position).getName());
+        holder.price.setText(carts.get(position).getPrice());
+        holder.size.setText(carts.get(position).getSize());
+    }
+
+    @Override
+    public int getItemCount() {
+        return carts.size();
+    }
+
+    public static class ColectionViewHolder extends  RecyclerView.ViewHolder{
+        TextView name,price,size;
+        ImageView image;
+
+        public ColectionViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            image = itemView.findViewById(R.id.itemImage);
+            name = itemView.findViewById(R.id.nameSneakerCart);
+            price = itemView.findViewById(R.id.priceSneakerCart);
+            size = itemView.findViewById(R.id.sizeSneakerCart);
+        }
+    }
+
+
+}

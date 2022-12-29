@@ -18,8 +18,6 @@ import com.pj.shoppingapp.ProductDetails;
 import com.pj.shoppingapp.R;
 import com.pj.shoppingapp.model.Colections;
 
-import org.checkerframework.checker.units.qual.A;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -29,6 +27,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
     Context context;
     ArrayList<Colections> colections;
     ArrayList<Colections> colectionsOld;
+    ArrayList<Colections> addtoCart;
 
 
 
@@ -36,6 +35,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
         this.context = context;
         this.colections = colections;
         this.colectionsOld= colections;
+        this.addtoCart = colections;
 
     }
 
@@ -69,7 +69,13 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
 
 
             context.startActivity(i);
-        });
+        }
+
+
+        );
+
+
+
 
     }
 

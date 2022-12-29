@@ -12,7 +12,7 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="#D7000000" />
+        android:background="#D73A3A3A" />
 
     <TextView
         android:id="@+id/textView2"
@@ -38,7 +38,8 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        android:onClick="onClickCart"/>
 
     <ImageView
         android:id="@+id/imageView2"

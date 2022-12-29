@@ -4,22 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DC5C5858"
+    android:background="@drawable/splash_image"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SlashActivity">
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="285dp"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/adidas" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="26sp" />
-
-</LinearLayout>
+    tools:context=".SlashActivity"
+    />
