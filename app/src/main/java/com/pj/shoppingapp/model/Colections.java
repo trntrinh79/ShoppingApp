@@ -4,12 +4,23 @@ public class Colections {
 
     String rating;
     String name;
-    String price;
+    Integer price;
     Integer id;
     String urlImage;
     int bigImageurl;
     String description;
     String account;
+    String unit;
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+
     public String getAccount() {
         return account;
     }
@@ -32,11 +43,11 @@ public class Colections {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -56,7 +67,7 @@ public class Colections {
         this.urlImage = urlImage;
     }
 
-    public Colections(String account,Integer id, String urlImage, String name , String price, String rating, String description) {
+    public Colections(String unit,String account,Integer id, String urlImage, String name , Integer price, String rating, String description) {
         this.name = name;
         this.price = price;
         this.id = id;
@@ -64,6 +75,7 @@ public class Colections {
         this.rating = rating;
         this.description= description;
         this.account= account;
+        this.unit = unit;
     }
 
 

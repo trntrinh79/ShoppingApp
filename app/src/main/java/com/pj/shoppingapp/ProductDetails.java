@@ -27,11 +27,17 @@ import java.util.List;
 import java.util.Locale;
 
 public class ProductDetails extends AppCompatActivity {
-    TextView productName, productPrice, productRating, descriptionView;
+    TextView productName, productPrice, productRating, descriptionView,unitProduct;
     ImageView backButton,img;
     LottieAnimationView lottieAnimationViewaddtocart,like;
-    String size="29",name,price,rating,image,description,account;
-
+    String name;
+    String unit;
+    Integer price;
+    String rating;
+    String image;
+    String description;
+    String account;
+    String size = "";
 
     DatabaseReference databaseReference;
     @Override
@@ -47,12 +53,15 @@ public class ProductDetails extends AppCompatActivity {
         Intent i = getIntent();
 
         name = i.getStringExtra("name");
-        price = i.getStringExtra("price");
+        price = Integer.valueOf(i.getStringExtra("price"));
         rating = i.getStringExtra("rating");
         image = i.getStringExtra("image");
         description = i.getStringExtra("description");
         account = i.getStringExtra("Account");
+        unit    = i.getStringExtra("unit");
 
+
+        unitProduct=findViewById(R.id.unitProduct);
         like = findViewById(R.id.like);
         productName = findViewById(R.id.prod_name);
         productPrice = findViewById(R.id.price);
@@ -65,9 +74,10 @@ public class ProductDetails extends AppCompatActivity {
 
 
         productName.setText(name);
-        productPrice.setText(price);
+        productPrice.setText(price.toString());
         productRating.setText(rating);
         descriptionView.setText(description);
+        unitProduct.setText(unit);
 
         Glide.with(this).load(image).into(img);
 
@@ -96,7 +106,7 @@ public class ProductDetails extends AppCompatActivity {
             public void onClick(View view) {
                 lottieAnimationViewaddtocart.playAnimation();
                 databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
-                Cart cart = new Cart(account,name,price,image,size);
+                Cart cart = new Cart(unit,account,name,price,image,size);
                 databaseReference.push().setValue(cart);
             }
         });

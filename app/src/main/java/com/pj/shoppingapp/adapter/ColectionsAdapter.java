@@ -52,7 +52,8 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
 
         Glide.with(context).load(colections.get(position).getUrlImage()).into(holder.image);
         holder.name.setText(colections.get(position).getName());
-        holder.price.setText(colections.get(position).getPrice());
+        holder.price.setText(colections.get(position).getPrice().toString());
+        holder.unit.setText(colections.get(position).getUnit());
 //        holder.description.setText(colections.get(position).getDescription());
 
         //Glide.with(context).load(colections.get(position).getUrlImage()).into((ImageView) holder.itemView);
@@ -61,11 +62,13 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
         holder.itemView.setOnClickListener((view)->{
             Intent i=new Intent(context, ProductDetails.class);
             i.putExtra("name",colections.get(position).getName());
-            i.putExtra("price",colections.get(position).getPrice());
+            i.putExtra("price",colections.get(position).getPrice().toString());
             i.putExtra("rating",colections.get(position).getRating());
             i.putExtra("image", colections.get(position).getUrlImage());
             i.putExtra("description", colections.get(position).getDescription());
             i.putExtra("Account",colections.get(position).getAccount());
+            i.putExtra("unit",colections.get(position).getUnit());
+
 
             context.startActivity(i);
         }
@@ -86,7 +89,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
 
 
     public static class ColectionViewHolder extends  RecyclerView.ViewHolder{
-        TextView name,price,description;
+        TextView name,price,description,unit;
         ImageView image;
 
         public ColectionViewHolder(@NonNull View itemView) {
@@ -96,7 +99,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
             name = itemView.findViewById(R.id.nameSneaker);
             price = itemView.findViewById(R.id.priceSneaker);
             description = itemView.findViewById(R.id.descriptionView);
-
+            unit = itemView.findViewById(R.id.unit);
 
 
 

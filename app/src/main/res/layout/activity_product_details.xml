@@ -230,4 +230,16 @@
             app:lottie_rawRes="@raw/addtocart"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/unitProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="$"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintStart_toEndOf="@+id/price"
+        app:layout_constraintTop_toTopOf="@+id/price" />
 </androidx.constraintlayout.widget.ConstraintLayout>

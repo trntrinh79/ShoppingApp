@@ -9,11 +9,11 @@ public class Cart {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -35,17 +35,28 @@ public class Cart {
 
     public Cart() {}
 
-    public Cart(String account, String name, String price, String imageUrl, String size) {
+    public Cart(String unit,String account, String name, Integer price, String imageUrl, String size) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
         this.size = size;
         this.account =account;
+        this.unit = unit;
     }
 
     String size;
     String name;
-    String price;
+    Integer price;
     String imageUrl;
     String account;
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    String unit;
 }

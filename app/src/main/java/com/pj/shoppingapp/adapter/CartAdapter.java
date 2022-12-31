@@ -43,8 +43,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewH
 
         Glide.with(context).load(carts.get(position).getImageUrl()).into(holder.image);
         holder.name.setText(carts.get(position).getName());
-        holder.price.setText(carts.get(position).getPrice());
+        holder.price.setText(carts.get(position).getPrice().toString());
         holder.size.setText(carts.get(position).getSize());
+        holder.unit.setText(carts.get(position).getUnit());
 
 
     }
@@ -55,12 +56,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewH
     }
 
     public static class ColectionViewHolder extends  RecyclerView.ViewHolder{
-        TextView name,price,size;
+        TextView name,price,size,unit;
         ImageView image;
 
         public ColectionViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            unit = itemView.findViewById(R.id.prod_unit);
             image = itemView.findViewById(R.id.itemImage);
             name = itemView.findViewById(R.id.nameSneakerCart);
             price = itemView.findViewById(R.id.priceSneakerCart);
