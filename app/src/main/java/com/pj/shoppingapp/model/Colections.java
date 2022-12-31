@@ -9,6 +9,16 @@ public class Colections {
     String urlImage;
     int bigImageurl;
     String description;
+    String account;
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+
 
 
 
@@ -46,13 +56,14 @@ public class Colections {
         this.urlImage = urlImage;
     }
 
-    public Colections(Integer id, String urlImage, String name , String price, String rating, String description) {
+    public Colections(String account,Integer id, String urlImage, String name , String price, String rating, String description) {
         this.name = name;
         this.price = price;
         this.id = id;
         this.urlImage = urlImage;
         this.rating = rating;
         this.description= description;
+        this.account= account;
     }
 
 

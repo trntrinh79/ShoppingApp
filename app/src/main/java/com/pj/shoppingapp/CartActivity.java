@@ -31,52 +31,35 @@ public class CartActivity extends AppCompatActivity {
     ArrayList<Cart> cartList;
     CartAdapter cartAdapter;
     DatabaseReference databaseReference;
-    //String account = getIntent().getStringExtra("Account").toString();
+    String account ;
     RecyclerView cartRecyclerView;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
         cartList = new ArrayList<Cart>();
+        account = getIntent().getStringExtra("Account");
         cartRecyclerView = findViewById(R.id.rcvCart);
         databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
-        databaseReference.child("0").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                if (task.isSuccessful()){
-
-                    if (task.getResult().exists()){
-
-                        Toast.makeText(CartActivity.this,"Successfully Read",Toast.LENGTH_SHORT).show();
-                        DataSnapshot dataSnapshot = task.getResult();
-//                        String name = String.valueOf(dataSnapshot.child("name").getValue());
-//                        String price = String.valueOf(dataSnapshot.child("price").getValue());
-//                        String size = String.valueOf(dataSnapshot.child("size").getValue());
-//                        String imgURL = String.valueOf(dataSnapshot.child("imageUrl").getValue());
-                        for(DataSnapshot data : dataSnapshot.getChildren()){
-                            Cart cart = data.getValue(Cart.class);
-                            cartList.add(cart);
-                        }
-
-
-                    }else {
-
-                        Toast.makeText(CartActivity.this,"User Doesn't Exist",Toast.LENGTH_SHORT).show();
-
-                    }
-
-
-                }else {
-
-                    Toast.makeText(CartActivity.this,"Failed to read",Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren()){
+                    Cart cart = data.getValue(Cart.class);
+                    cartList.add(cart);
                 }
-
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        //cartList.add( new Cart("Nike Air Jordan 1 Mid GS ‘Noble Red’","255$","https://sneakerdaily.vn/wp-content/uploads/2022/12/giay-nike-air-jordan-1-mid-gs-noble-red-554725-066.jpg.webp","30"));
         setCartRecycler((ArrayList<Cart>) cartList);
 
 

@@ -25,22 +25,27 @@ public class Cart {
         this.imageUrl = imageUrl;
     }
 
-    public String getSize() {
-        return size;
-    }
+    public String getSize() {return size;}
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+    public void setSize(String size) {this.size = size;}
 
-    public Cart(String name, String price, String imageUrl, String size) {
+    public String getAccount() {return account;}
+
+    public void setAccount(String account) {this.account = account;}
+
+    public Cart() {}
+
+    public Cart(String account, String name, String price, String imageUrl, String size) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
         this.size = size;
+        this.account =account;
     }
+
     String size;
     String name;
     String price;
     String imageUrl;
+    String account;
 }

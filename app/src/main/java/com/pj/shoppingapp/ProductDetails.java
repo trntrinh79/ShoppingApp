@@ -30,7 +30,7 @@ public class ProductDetails extends AppCompatActivity {
     TextView productName, productPrice, productRating, descriptionView;
     ImageView backButton,img;
     LottieAnimationView lottieAnimationViewaddtocart,like;
-    String size,name,price,rating,image,description;
+    String size="29",name,price,rating,image,description,account;
 
 
     DatabaseReference databaseReference;
@@ -51,6 +51,7 @@ public class ProductDetails extends AppCompatActivity {
         rating = i.getStringExtra("rating");
         image = i.getStringExtra("image");
         description = i.getStringExtra("description");
+        account = i.getStringExtra("Account");
 
         like = findViewById(R.id.like);
         productName = findViewById(R.id.prod_name);
@@ -94,7 +95,9 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 lottieAnimationViewaddtocart.playAnimation();
-
+                databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
+                Cart cart = new Cart(account,name,price,image,size);
+                databaseReference.push().setValue(cart);
             }
         });
 
@@ -105,8 +108,7 @@ public class ProductDetails extends AppCompatActivity {
     public void onClickSizeButton(View view) {
         Button b = (Button) view;
         size = b.getText().toString();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
-        Cart cart = new Cart(name,price,image,size);
-        databaseReference.push().setValue(cart);
+
     }
+
 }

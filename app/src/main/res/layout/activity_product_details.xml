@@ -19,7 +19,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        android:onClick="onClickSizeButton"/>
 
     <Button
         android:id="@+id/button8"
@@ -46,7 +47,8 @@
         android:textColor="#000000"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:onClick="onClickSizeButton"/>
 
     <ImageView
         android:id="@+id/backButton"
@@ -163,7 +165,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/button6"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
+        app:layout_constraintTop_toTopOf="@+id/button6"
+        android:onClick="onClickSizeButton"/>
 
     <Button
         android:id="@+id/button3"
@@ -176,7 +179,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/button8"
         app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        app:layout_constraintTop_toTopOf="@+id/button8"
+        android:onClick="onClickSizeButton"/>
 
     <Button
         android:id="@+id/button5"
@@ -189,7 +193,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/button7"
         app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintTop_toTopOf="@+id/button7"
+        android:onClick="onClickSizeButton"/>
 
 
 
@@ -222,7 +227,7 @@
             android:id="@+id/addtocart"
             android:layout_width="400dp"
             android:layout_height="200dp"
-            app:lottie_rawRes="@raw/addtocart" />
+            app:lottie_rawRes="@raw/addtocart"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

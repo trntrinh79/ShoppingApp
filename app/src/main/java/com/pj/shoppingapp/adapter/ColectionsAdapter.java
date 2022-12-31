@@ -65,8 +65,7 @@ public class ColectionsAdapter extends RecyclerView.Adapter<ColectionsAdapter.Co
             i.putExtra("rating",colections.get(position).getRating());
             i.putExtra("image", colections.get(position).getUrlImage());
             i.putExtra("description", colections.get(position).getDescription());
-
-
+            i.putExtra("Account",colections.get(position).getAccount());
 
             context.startActivity(i);
         }

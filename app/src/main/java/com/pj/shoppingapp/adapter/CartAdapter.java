@@ -45,6 +45,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewH
         holder.name.setText(carts.get(position).getName());
         holder.price.setText(carts.get(position).getPrice());
         holder.size.setText(carts.get(position).getSize());
+
+
     }
 
     @Override
