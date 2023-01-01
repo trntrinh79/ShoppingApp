@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.pj.shoppingapp.CartActivity;
 import com.pj.shoppingapp.ProductDetails;
 import com.pj.shoppingapp.R;
 import com.pj.shoppingapp.model.Cart;
@@ -39,13 +40,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ColectionViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ColectionViewHolder holder,final int position) {
 
         Glide.with(context).load(carts.get(position).getImageUrl()).into(holder.image);
         holder.name.setText(carts.get(position).getName());
         holder.price.setText(carts.get(position).getPrice().toString());
         holder.size.setText(carts.get(position).getSize());
         holder.unit.setText(carts.get(position).getUnit());
+
+
+
+        holder.itemView.setOnClickListener((view)->{
+                Intent i = new Intent(context, CartActivity.class);
+                i.putExtra("name",carts.get(position).getName());
+                context.startActivity(i);
+            });
 
 
     }

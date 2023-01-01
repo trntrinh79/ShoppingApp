@@ -2,10 +2,12 @@ package com.pj.shoppingapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,10 +16,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Filter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.pj.shoppingapp.adapter.ColectionsAdapter;
@@ -31,8 +36,13 @@ public class HomeActivity extends AppCompatActivity {
     ColectionsAdapter colectionsAdapter;
     List<Colections> colectionsList = new ArrayList<>();
     String account;
+
     DatabaseReference databaseReference;
     EditText search;
+    ImageView btnSignOut;
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,6 +50,20 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         search = findViewById(R.id.etSearch);
+        btnSignOut = findViewById(R.id.btn_signout);
+        progressDialog = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                Toast.makeText(HomeActivity.this, "Sign out", Toast.LENGTH_SHORT).show();
+                mAuth.signOut();
+                startActivity(i);
+            }
+        });
+
         colectionsRecyclerView=findViewById(R.id.colectionsRecycler);
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -57,6 +81,7 @@ public class HomeActivity extends AppCompatActivity {
                 colectionsAdapter.getFilter().filter(editable);
             }
         });
+
 
 
 

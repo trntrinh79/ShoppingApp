@@ -79,15 +79,21 @@
         app:layout_constraintTop_toTopOf="@+id/prod_name"
         app:srcCompat="@drawable/ic_baseline_star_rate_24" />
 
+
+
     <ImageView
-        android:id="@+id/big_image"
+        android:id="@+id/slideImage"
         android:layout_width="match_parent"
         android:layout_height="344dp"
         android:layout_marginTop="8dp"
+        app:iss_auto_cycle="true"
+        app:iss_period="1000"
+        app:iss_delay="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:srcCompat="@drawable/af1_low" />
+        android:src="@drawable/af1_low"
+        />
 
     <TextView
         android:id="@+id/prod_name"
@@ -101,7 +107,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/big_image" />
+        app:layout_constraintTop_toBottomOf="@+id/slideImage" />
 
     <TextView
         android:id="@+id/rating"
