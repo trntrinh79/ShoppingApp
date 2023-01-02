@@ -1,6 +1,7 @@
 package com.pj.shoppingapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
@@ -130,5 +131,12 @@ public class HomeActivity extends AppCompatActivity {
         Intent i = new Intent(HomeActivity.this,CartActivity.class);
         i.putExtra("Account",account);
         startActivity(i);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        setResult(RESULT_OK,data);
+        account = data.getStringExtra("Account").toString();
     }
 }

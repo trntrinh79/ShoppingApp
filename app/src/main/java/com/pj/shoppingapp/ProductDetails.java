@@ -74,19 +74,6 @@ public class ProductDetails extends AppCompatActivity {
         descriptionView.setText(description);
         unitProduct.setText(unit);
         Glide.with(this).load(image).into(img);
-
-
-
-
-//
-
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(ProductDetails.this, HomeActivity.class);
-                startActivity(i);
-            }
-        });
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,6 +100,22 @@ public class ProductDetails extends AppCompatActivity {
         Button b = (Button) view;
         size = b.getText().toString();
 
+    }
+
+    public void onQuit(View view) {
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("Account",account.toString());
+        setResult(this.RESULT_OK, returnIntent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("Account",account.toString());
+        setResult(this.RESULT_OK, returnIntent);
+        finish();
     }
 
 }
