@@ -50,11 +50,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ColectionViewH
 
 
 
-        holder.itemView.setOnClickListener((view)->{
-                Intent i = new Intent(context, CartActivity.class);
-                i.putExtra("name",carts.get(position).getName());
-                context.startActivity(i);
-            });
+//        holder.itemView.setOnClickListener((view)->{
+//                Intent i = new Intent(context, CartActivity.class);
+//                i.putExtra("name",carts.get(position).getName());
+//                context.startActivity(i);
+//            });
 
 
     }

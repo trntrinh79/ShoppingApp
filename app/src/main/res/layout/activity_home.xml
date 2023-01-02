@@ -7,6 +7,15 @@
 
     tools:context=".HomeActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/hi2023"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/colections"
+        app:layout_constraintStart_toEndOf="@+id/colections"
+        app:layout_constraintTop_toTopOf="@+id/colections"
+        app:lottie_rawRes="@raw/hi2023" />
 
     <ImageView
         android:id="@+id/imageView4"

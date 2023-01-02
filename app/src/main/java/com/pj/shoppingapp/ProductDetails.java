@@ -91,7 +91,7 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 like.playAnimation();
-                Toast.makeText(ProductDetails.this, "Thanks for Like", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductDetails.this, "Liked", Toast.LENGTH_SHORT).show();
             }
         });
 

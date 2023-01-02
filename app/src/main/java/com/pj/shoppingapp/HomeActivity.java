@@ -19,6 +19,7 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     ColectionsAdapter colectionsAdapter;
     List<Colections> colectionsList = new ArrayList<>();
     String account;
-
+    LottieAnimationView hi2023;
     DatabaseReference databaseReference;
     EditText search;
     ImageView btnSignOut;
@@ -52,6 +53,8 @@ public class HomeActivity extends AppCompatActivity {
         search = findViewById(R.id.etSearch);
         btnSignOut = findViewById(R.id.btn_signout);
         progressDialog = new ProgressDialog(this);
+
+
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         btnSignOut.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        hi2023 = findViewById(R.id.hi2023);
+        hi2023.playAnimation();
         colectionsRecyclerView=findViewById(R.id.colectionsRecycler);
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -89,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         account=  getIntent().getStringExtra("Account");
-        Toast.makeText(this, account, Toast.LENGTH_SHORT).show();
+
         //add Colection
         colectionsList.add(new Colections("$",account,1,"https://sneakerdaily.vn/wp-content/uploads/2020/11/air-jordan-1-high-dark-mocha-555088-105-1.png.webp","Air Jordan 1 Dark Mocha High OG",115,"4.5","This OG AJ1 employs a new twist on a familiar colour scheme: dark mocha."));
         colectionsList.add(new Colections("$",account,2,"https://sneakerdaily.vn/wp-content/uploads/2022/12/giay-nike-air-jordan-1-mid-gs-noble-red-554725-066.jpg.webp","Nike Air Jordan 1 Mid GS ‘Noble Red’",255,"5.0","Inspired by 2018's 'Bred Toe,' the Air Jordan 1 Mid GS 'Noble Red' is a grade-school shoe with a familiar mix of colors."));

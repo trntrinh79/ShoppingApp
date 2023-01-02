@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,6 +43,7 @@ public class CartActivity extends AppCompatActivity {
     String account;
     RecyclerView cartRecyclerView;
     String name;
+    ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (getSupportActionBar() != null) {
@@ -48,15 +52,21 @@ public class CartActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        Intent i = getIntent();
+//        Intent i = getIntent();
+//
+//        name = i.getStringExtra("name");
 
-        name = i.getStringExtra("name");
-
-
+        btnBack = findViewById(R.id.btn_back);
         cartList = new ArrayList<Cart>();
         account = getIntent().getStringExtra("Account");
         cartRecyclerView = findViewById(R.id.rcvCart);
-
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CartActivity.this,HomeActivity.class);
+                startActivity(i);
+            }
+        });
         databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
 //        databaseReferencechild = FirebaseDatabase.getInstance().getReference("Cart").child(String.valueOf(id));
 
@@ -91,7 +101,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
-//                databaseReference.removeValue();
+                databaseReference.removeValue();
                 cartList.remove(position);
                 cartAdapter.notifyDataSetChanged();
 
